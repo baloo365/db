@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class DB연결테스트 {
+public class DB연결테스트4_update {
 
 	public static void main(String[] args) {
 		
@@ -30,12 +30,15 @@ public class DB연결테스트 {
 			//PrepareStatement가 sql 부품!!
 			
 			
-			String sql = "insert into HR.\"member\" values ('win3', 'win3', 'win3', 'win3')";
+			String sql = "update HR.\"member\" set tel = '555' where id = 'apple'";
 			PreparedStatement ps = Con.prepareStatement(sql); 
 			// con 부품으로 SQL 스트링에 있는 것 SQL 부품으로 만들어주세요
 			System.out.println("3. SQL문 부품(객체)으로 만들어주기.");
 			
 			ps.executeUpdate();
+			//insert, update, delete문만!! sql문 실행결과가 int일때만 사용
+			//select는 실행결과가 테이블이기 때문에 사용 불가
+			
 			System.out.println("4. SQL문 오라클로 보내기 성공.");
 		} catch (Exception e) {
 			e.printStackTrace();
